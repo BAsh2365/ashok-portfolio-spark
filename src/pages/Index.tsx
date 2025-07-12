@@ -1,7 +1,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Star, Mail, MapPin, ExternalLink, Github, Engineering, Home, SportsBasketball, SmartToy, RequestQuote, LiveTv, BackupTable, Analytics, Psychology, Code, CheckCircle, DirectionsBoat, AllInclusive, BarChart, AccountTree, ScatterPlot, Storage, DataExploration, Cloud, School, LocationOn, Language, Menu, Send } from '@mui/icons-material';
+import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, Bot, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Menu, Send } from 'lucide-react';
 
 const Index = () => {
   const projectsRef = useRef(null);
@@ -16,7 +16,7 @@ const Index = () => {
     {
       title: "Systems-Engineering AI chatbot",
       description: "Leveraged AI systems, API keys, software engineering principles, and systems engineering concepts to make an end-to-end MBSE chatbot application based on Systems Engineering Research, through the Virginia Tech Hume Center, and development goals.",
-      icon: <Engineering className="text-coffee-600" />,
+      icon: <Settings className="text-coffee-600" />,
       tags: ["Python", "Relational Databases", "Graph Databases", "Docker", "Azure", "Software diagramming", "AI"]
     },
     {
@@ -28,31 +28,31 @@ const Index = () => {
     {
       title: "NBA Case Study: Data Prediction and Analysis",
       description: "Built a simple linear regression model with 7-8 features (NBA stats and Advanced stat metrics) based on Webscrapped data from Basketball Reference on game splits for the 2025 season. Gathered Metrics of predicted data, outputted to a CSV, and built a dashboard in Tableau showing different statistical comparisons.",
-      icon: <SportsBasketball className="text-coffee-600" />,
+      icon: <Zap className="text-coffee-600" />,
       tags: ["Sci-Kit-Learn", "Python", "Linear-Regression", "Data Visualization in Tableau", "Webscrapping", "Data Storytelling"]
     },
     {
       title: "AI exploration project",
       description: "Used Neo4j Graph Database and made a simple project on how an AI models and visualizes data in certain contexts with core principles of input and response data.",
-      icon: <SmartToy className="text-coffee-600" />,
+      icon: <Bot className="text-coffee-600" />,
       tags: ["Neo4j", "Graph Data Visualization"]
     },
     {
       title: "Financial Analysis: Sony Corporation",
       description: "Looked at financial data (Revenue, Profits, and Earnings Per share) for the Sony Corporation (SONY) from 2020-2024 and analyzing the company's finances while making suggestions for potential improvement and future company projections.",
-      icon: <RequestQuote className="text-coffee-600" />,
+      icon: <DollarSign className="text-coffee-600" />,
       tags: ["Python", "APIs", "Matplotlib", "Fundamental understanding of lists and list comprehensions"]
     },
     {
       title: "Condensed Media: Online Branding and Social Media Page",
       description: "Started a Website in 2021 titled condensed sports, eventually making it a multi-disciplinary personal brand for sports and pop culture. Features a podcast, Instagram page, and website discussing all things sports/pop culture.",
-      icon: <LiveTv className="text-coffee-600" />,
+      icon: <Tv className="text-coffee-600" />,
       tags: ["Social Media Marketing", "Website optimization", "Podcasting", "Sports Analytics and Research"]
     },
     {
       title: "Multiple Linear Regression in R",
       description: "MLR in R using cross-validation, ridge regression, etc. Shows how the number of touchdowns for an Atlanta Falcons player is affected by multiple factors.",
-      icon: <BackupTable className="text-coffee-600" />,
+      icon: <Database className="text-coffee-600" />,
       tags: ["R", "Regression (Ridge, Lasso, MLR, etc)", "Data Analysis"]
     }
   ];
@@ -60,7 +60,7 @@ const Index = () => {
   const skills = [
     {
       title: "Data Science",
-      icon: <Analytics className="text-coffee-600 text-2xl" />,
+      icon: <BarChart3 className="text-coffee-600 text-2xl" />,
       items: [
         "Statistical Analysis (Python & R)",
         "Data Visualization",
@@ -71,7 +71,7 @@ const Index = () => {
     },
     {
       title: "Machine Learning",
-      icon: <Psychology className="text-coffee-600 text-2xl" />,
+      icon: <Brain className="text-coffee-600 text-2xl" />,
       items: [
         "Supervised Learning",
         "Unsupervised Learning",
@@ -82,7 +82,7 @@ const Index = () => {
     },
     {
       title: "Software Engineering",
-      icon: <Code className="text-coffee-600 text-2xl" />,
+      icon: <Code2 className="text-coffee-600 text-2xl" />,
       items: [
         "Python, Javascript (Node.js), Typescript (NestJS), SQL, Neo4j",
         "Software Architecture & Design Patterns",
@@ -94,13 +94,13 @@ const Index = () => {
   ];
 
   const tools = [
-    { name: "Docker", icon: <DirectionsBoat className="text-coffee-600" /> },
-    { name: "Scikit-Learn", icon: <AllInclusive className="text-coffee-600" /> },
-    { name: "Pandas", icon: <BarChart className="text-coffee-600" /> },
-    { name: "Neo4j", icon: <AccountTree className="text-coffee-600" /> },
-    { name: "Matplotlib", icon: <ScatterPlot className="text-coffee-600" /> },
-    { name: "SQL", icon: <Storage className="text-coffee-600" /> },
-    { name: "ggplot2", icon: <DataExploration className="text-coffee-600" /> },
+    { name: "Docker", icon: <Ship className="text-coffee-600" /> },
+    { name: "Scikit-Learn", icon: <Infinity className="text-coffee-600" /> },
+    { name: "Pandas", icon: <TrendingUp className="text-coffee-600" /> },
+    { name: "Neo4j", icon: <GitBranch className="text-coffee-600" /> },
+    { name: "Matplotlib", icon: <ScatterChart className="text-coffee-600" /> },
+    { name: "SQL", icon: <HardDrive className="text-coffee-600" /> },
+    { name: "ggplot2", icon: <PieChart className="text-coffee-600" /> },
     { name: "MS Azure", icon: <Cloud className="text-coffee-600" /> }
   ];
 
@@ -414,14 +414,14 @@ const Index = () => {
                 transition={{ delay: 1.2, duration: 0.6 }}
               >
                 <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
-                  <School className="text-coffee-600 mr-3" />
+                  <GraduationCap className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">Education</span>
                     <p className="text-mocha-700 font-medium">B.S. Computational Modeling and Data Analytics</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
-                  <School className="text-coffee-600 mr-3" />
+                  <GraduationCap className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">University</span>
                     <p className="text-mocha-700 font-medium">Virginia Tech</p>
@@ -435,7 +435,7 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
-                  <Language className="text-coffee-600 mr-3" />
+                  <Languages className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">Languages</span>
                     <p className="text-mocha-700 font-medium">English, Tamil</p>
