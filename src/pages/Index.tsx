@@ -1,7 +1,6 @@
-
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, Bot, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Menu, Send } from 'lucide-react';
+import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Send } from 'lucide-react';
 
 const Index = () => {
   const projectsRef = useRef(null);
@@ -20,7 +19,7 @@ const Index = () => {
       tags: ["Python", "Relational Databases", "Graph Databases", "Docker", "Azure", "Software diagramming", "AI"]
     },
     {
-      title: "Real Estate Data Program",
+      title: "Real Estate Data Program", 
       description: "Developed a Python script in Jupyter Notebook that leveraged Python Pandas, asyncio, Playwright, and Excel Output for webscrapping in order to catagorize and analyze Real Estate Housing Data in the Atlanta Area.",
       icon: <Home className="text-coffee-600" />,
       tags: ["Pandas Dataframes", "Web Scrapping", "Excel", "Data Analysis"]
@@ -30,12 +29,6 @@ const Index = () => {
       description: "Built a simple linear regression model with 7-8 features (NBA stats and Advanced stat metrics) based on Webscrapped data from Basketball Reference on game splits for the 2025 season. Gathered Metrics of predicted data, outputted to a CSV, and built a dashboard in Tableau showing different statistical comparisons.",
       icon: <Zap className="text-coffee-600" />,
       tags: ["Sci-Kit-Learn", "Python", "Linear-Regression", "Data Visualization in Tableau", "Webscrapping", "Data Storytelling"]
-    },
-    {
-      title: "AI exploration project",
-      description: "Used Neo4j Graph Database and made a simple project on how an AI models and visualizes data in certain contexts with core principles of input and response data.",
-      icon: <Bot className="text-coffee-600" />,
-      tags: ["Neo4j", "Graph Data Visualization"]
     },
     {
       title: "Financial Analysis: Sony Corporation",
@@ -74,7 +67,7 @@ const Index = () => {
       icon: <Brain className="text-coffee-600 text-2xl" />,
       items: [
         "Supervised Learning",
-        "Unsupervised Learning",
+        "Unsupervised Learning", 
         "Regression Testing",
         "Natural Language Processing",
         "Data Retrieval & Fine-Tuning"
@@ -106,33 +99,32 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-cream-100">
-      {/* Navigation */}
+      {/* Modern Navigation */}
       <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 w-full bg-mocha-800/95 backdrop-blur-md shadow-lg z-50"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-md shadow-lg z-50 rounded-full px-8 py-4"
       >
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center text-cream-50"
-            >
-              <Star className="mr-2" />
-              <span className="font-bold text-xl">Bhargav Ashok</span>
-            </motion.div>
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-cream-50 hover:text-coffee-300 transition-colors"
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </div>
+        <div className="flex items-center space-x-8">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center text-mocha-800"
+          >
+            <Star className="mr-2 h-5 w-5" />
+            <span className="font-bold text-lg">Bhargav Ashok</span>
+          </motion.div>
+          <div className="hidden md:flex space-x-6">
+            {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                whileHover={{ scale: 1.05 }}
+                className="text-mocha-700 hover:text-coffee-600 transition-colors font-medium"
+              >
+                {item}
+              </motion.a>
+            ))}
           </div>
         </div>
       </motion.nav>
@@ -170,16 +162,16 @@ const Index = () => {
               Taking it one step at a time to implement software solutions that provide assistance, quantifiable metrics, and real time data insights.
             </motion.p>
 
-            {/* Tech Stack Scrolling Animation */}
+            {/* Fixed Tech Stack Scrolling Animation */}
             <motion.div 
               className="overflow-hidden mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
             >
-              <div className="flex animate-scroll">
+              <div className="flex animate-scroll space-x-8">
                 {[...Array(3)].map((_, setIndex) => (
-                  <div key={setIndex} className="flex">
+                  <div key={setIndex} className="flex space-x-8 flex-shrink-0">
                     {[
                       "https://d3k2f0s3vqqs9o.cloudfront.net/media/2BF7D1AD-4DB7-43DF-A1F1EE0C57549FC3/2DC7E8CE-9361-44E8-8124C2A98686CA14/webimage-B44D00B5-F762-4041-AAFA1D482BA4D7D3.png",
                       "https://swimburger.net/media/ppnn3pcl/azure.png",
@@ -193,7 +185,7 @@ const Index = () => {
                         key={`${setIndex}-${index}`}
                         src={src}
                         alt="Tech logo"
-                        className="mx-6 h-16 opacity-80 hover:opacity-100 transition-opacity"
+                        className="h-16 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0"
                         whileHover={{ scale: 1.1 }}
                       />
                     ))}
@@ -229,7 +221,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section with Animation */}
       <section id="projects" ref={projectsRef} className="py-20 bg-gradient-to-br from-cream-100 to-cream-200">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2 
@@ -247,7 +239,7 @@ const Index = () => {
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
@@ -266,7 +258,7 @@ const Index = () => {
                         key={tagIndex}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={projectsInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ delay: (index * 0.1) + (tagIndex * 0.05), duration: 0.3 }}
+                        transition={{ delay: (index * 0.15) + (tagIndex * 0.05), duration: 0.3 }}
                         whileHover={{ scale: 1.05 }}
                         className="bg-coffee-100 text-coffee-700 text-xs px-3 py-1 rounded-full border border-coffee-200"
                       >
@@ -350,7 +342,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section with Fixed Circular Image */}
       <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-br from-cream-100 to-mocha-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="md:flex md:items-center md:space-x-12">
@@ -363,7 +355,7 @@ const Index = () => {
               <motion.img
                 src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
                 alt="Bhargav Ashok"
-                className="rounded-2xl shadow-lg w-full max-w-sm mx-auto animate-float"
+                className="rounded-full shadow-lg w-64 h-64 object-cover mx-auto"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               />
