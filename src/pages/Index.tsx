@@ -1,4 +1,3 @@
-
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
@@ -28,7 +27,12 @@ import {
   GraduationCap,
   MapPin as LocationOn,
   Languages,
-  Send
+  Send,
+  FileText,
+  Download,
+  Calendar,
+  Building,
+  Award
 } from 'lucide-react';
 
 const Index = () => {
@@ -36,14 +40,17 @@ const Index = () => {
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+  const resumeRef = useRef(null);
   const [isScrollPaused, setIsScrollPaused] = useState(false);
 
   const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
   const aboutInView   = useInView(aboutRef,   { once: true, margin: "-100px" });
   const skillsInView  = useInView(skillsRef,  { once: true, margin: "-100px" });
   const contactInView = useInView(contactRef, { once: true, margin: "-100px" });
+  const resumeInView = useInView(resumeRef, { once: true, margin: "-100px" });
 
   const projects = [
+    // ... (same as before)
     {
       title: "Systems-Engineering AI chatbot",
       description:
@@ -93,7 +100,7 @@ const Index = () => {
       title: "Data Science",
       icon: <BarChart3 className="text-coffee-600 text-2xl" />,
       items: [
-        "Statistical Analysis (Python & R)",
+        "Statistical Analysis/Regression (Python & R)",
         "Data Visualization",
         "Product Research & Insight",
         "Predictive Modeling",
@@ -106,7 +113,7 @@ const Index = () => {
       items: [
         "Supervised Learning",
         "Unsupervised Learning",
-        "Regression Testing",
+        "Contrastive Learning",
         "Natural Language Processing",
         "Data Retrieval & Fine-Tuning"
       ]
@@ -135,6 +142,42 @@ const Index = () => {
     { name: "MS Azure", icon: <Cloud className="text-coffee-600" /> }
   ];
 
+  const experiences = [
+    {
+      company: "Violet Labs",
+      position: "Systems Engineering Intern",
+      date: "May – August 2025",
+      location: "Remote (Atlanta, GA)",
+      highlights: [
+        "Crafted an ETL pipeline in Node.js to migrate and transform PostgreSQL data into Neo4j",
+        "Improved Neo4j query times by 53% on average using optimization techniques",
+        "Conducted end-to-end tests for larger instances (14 second improved query for 1000-part BOM)"
+      ]
+    },
+    {
+      company: "Hume Center for National Security and Technology at Virginia Tech",
+      position: "AI/Software Engineering Research Intern",
+      date: "September 2024 – May 2025",
+      location: "Blacksburg, VA",
+      highlights: [
+        "Developed Model-Based Systems Engineering AI tool, boosting project efficiency by 25%",
+        "Leveraged RAG, Python, AI APIs, MS SQL, Flask, and HTML UI components",
+        "Implemented cloud-based, containerized solutions using Microsoft Azure and Docker"
+      ]
+    },
+    {
+      company: "Gwinnett County Public Library Headquarters",
+      position: "Information Technology Intern",
+      date: "May – July 2024",
+      location: "Lawrenceville, GA",
+      highlights: [
+        "Automated browser data clearing with scripts, cutting reboot times by 50%",
+        "Built visualizations with Excel, Python, and JavaScript for Microsoft Office 365 alternative",
+        "Monitored and mitigated risks on library PCs via Trend Micro"
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-cream-100">
       {/* Hero Section */}
@@ -147,39 +190,40 @@ const Index = () => {
             className="mb-12"
           >
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-cream-50 max-w-full typing-disabled"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-cream-50 max-w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 1 }}
               style={{
-                overflow: 'hidden',
-                borderRight: '.15em solid #CC5500',
-                whiteSpace: 'nowrap',
-                animation: 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
+                overflow: 'visible',
+                borderRight: 'none',
+                whiteSpace: 'normal',
+                animation: undefined
               }}
             >
-              Hey, This is Bhargav Ashok
+              <span className="hidden sm:inline">Hey, This is Bhargav Ashok</span>
+              <span className="sm:hidden block">Bhargav Ashok</span>
             </motion.h1>
             <motion.h2
-              className="text-base sm:text-lg md:text-2xl mb-8 text-cream-100 max-w-full typing-disabled"
+              className="text-sm sm:text-base md:text-xl lg:text-2xl mb-8 text-cream-100 max-w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 4.0, duration: 1 }}
+              transition={{ delay: 0.6, duration: 1 }}
               style={{
-                overflow: 'hidden',
-                borderRight: '.15em solid #CC5500',
-                whiteSpace: 'nowrap',
-                margin: '1rem auto',
-                animation: 'typing 3.5s steps(40, end) 4s, blink-caret .75s step-end infinite'
+                overflow: 'visible',
+                borderRight: 'none',
+                whiteSpace: 'normal',
+                animation: undefined
               }}
             >
-              Aspiring: Data Scientist/Engineer/Analyst | Product Manager | Software Engineer
+              <span className="hidden sm:inline">Aspiring: Data Scientist/Engineer/Analyst | Product Manager | Software Engineer</span>
+              <span className="sm:hidden block">Data Scientist | Software Engineer</span>
             </motion.h2>
             <motion.p
-              className="text-lg mb-12 text-cream-200 max-w-3xl mx-auto"
+              className="text-base sm:text-lg mb-12 text-cream-200 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 8.0, duration: 1 }}
+              transition={{ delay: 1.2, duration: 1 }}
             >
               Taking it one step at a time to implement software solutions that provide assistance, quantifiable metrics, and real time data insights.
             </motion.p>
@@ -189,7 +233,7 @@ const Index = () => {
               className="overflow-hidden mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 9.0, duration: 1 }}
+              transition={{ delay: 1.6, duration: 1 }}
               onMouseEnter={() => setIsScrollPaused(true)}
               onMouseLeave={() => setIsScrollPaused(false)}
             >
@@ -221,10 +265,10 @@ const Index = () => {
             </motion.div>
 
             <motion.div
-              className="flex justify-center space-x-6"
+              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 10.0, duration: 0.8 }}
+              transition={{ delay: 2.2, duration: 0.8 }}
             >
               <motion.a
                 href="#contact"
@@ -243,6 +287,183 @@ const Index = () => {
                 View Projects
               </motion.a>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-br from-cream-100 to-mocha-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-16 text-mocha-800"
+            initial={{ opacity: 0, y: 30 }}
+            animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            About Me
+          </motion.h2>
+          <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-12 space-y-8 md:space-y-0">
+            <motion.div
+              className="flex-shrink-0"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={aboutInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-coffee-200">
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
+                  alt="Bhargav Ashok"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              className="flex-1"
+              initial={{ opacity: 0, x: 50 }}
+              animate={aboutInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="space-y-4 text-mocha-600 leading-relaxed text-center md:text-left">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  Hey, as you've probably already guessed... I'm Bhargav! I'm a student at Virginia Tech with a passion for data science, machine learning, and software engineering. My academic journey has been focused on solving complex problems using data-driven approaches and building intelligent systems.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                >
+                  During my time at Virginia Tech, I've developed a strong foundation in statistical analysis, predictive modeling, and software development. I've applied these skills through internships and research projects at my university.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                >
+                  I have strong interests in sports/sports analytics, writing, fitness, traveling (studying abroad in Scotland during the Fall 2025 semester), and art (love the MOMA in New York, as well as the art museums in Atlanta, DC, etc). I've lost over 70 lbs in one year and I try to maintain a balanced lifestyle.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 1.0, duration: 0.6 }}
+                >
+                  When I'm not coding or sitting at a desk, you can find me at the Pickleball court, Basketball court, the gym, or on the couch...watching Netflix.
+                </motion.p>
+              </div>
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 1.2, duration: 0.6 }}
+              >
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
+                  <GraduationCap className="text-coffee-600 mr-3" />
+                  <div>
+                    <span className="text-sm text-mocha-500">Education</span>
+                    <p className="text-mocha-700 font-medium">B.S. Computational Modeling and Data Analytics</p>
+                  </div>
+                </div>
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
+                  <GraduationCap className="text-coffee-600 mr-3" />
+                  <div>
+                    <span className="text-sm text-mocha-500">University</span>
+                    <p className="text-mocha-700 font-medium">Virginia Tech</p>
+                  </div>
+                </div>
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
+                  <LocationOn className="text-coffee-600 mr-3" />
+                  <div>
+                    <span className="text-sm text-mocha-500">Location</span>
+                    <p className="text-mocha-700 font-medium">Atlanta, GA</p>
+                  </div>
+                </div>
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
+                  <Languages className="text-coffee-600 mr-3" />
+                  <div>
+                    <span className="text-sm text-mocha-500">Languages</span>
+                    <p className="text-mocha-700 font-medium">English, Tamil</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" ref={resumeRef} className="py-20 bg-gradient-to-br from-mocha-100 to-coffee-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-16 text-mocha-800"
+            initial={{ opacity: 0, y: 30 }}
+            animate={resumeInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            Professional Experience
+          </motion.h2>
+          
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                animate={resumeInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-mocha-800 mb-2">{exp.position}</h3>
+                    <div className="flex items-center text-coffee-600 mb-2">
+                      <Building className="mr-2" />
+                      <span className="font-semibold">{exp.company}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:items-end">
+                    <div className="flex items-center text-mocha-600 mb-1">
+                      <Calendar className="mr-2" />
+                      <span>{exp.date}</span>
+                    </div>
+                    <div className="flex items-center text-mocha-600">
+                      <MapPin className="mr-2" />
+                      <span>{exp.location}</span>
+                    </div>
+                  </div>
+                </div>
+                <ul className="space-y-2">
+                  {exp.highlights.map((highlight, hIndex) => (
+                    <motion.li
+                      key={hIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={resumeInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: index * 0.2 + hIndex * 0.1, duration: 0.4 }}
+                      className="flex items-start text-mocha-600"
+                    >
+                      <CheckCircle className="text-coffee-500 mr-3 mt-0.5 text-sm flex-shrink-0" />
+                      <span>{highlight}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={resumeInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="mt-12 text-center"
+          >
+            <a
+              href="/Bhargav_Ashok_Resume.pdf"
+              download
+              className="inline-block bg-coffee-600 text-cream-50 px-6 py-3 rounded-full font-medium hover:bg-coffee-700 transition-colors shadow-lg"
+            >
+              Download Resume
+            </a>
           </motion.div>
         </div>
       </section>
@@ -360,294 +581,6 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* About Section */}
-      <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-br from-cream-100 to-mocha-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.h2
-            className="text-4xl font-bold text-center mb-16 text-mocha-800"
-            initial={{ opacity: 0, y: 30 }}
-            animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            About Me
-          </motion.h2>
-          <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-12 space-y-8 md:space-y-0">
-            <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={aboutInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-coffee-200">
-                <img
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
-                  alt="Bhargav Ashok"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              className="flex-1"
-              initial={{ opacity: 0, x: 50 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="space-y-4 text-mocha-600 leading-relaxed text-center md:text-left">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                >
-                  Hey, as you've probably already guessed... I'm Bhargav! I'm a student at Virginia Tech with a passion for data science, machine learning, and software engineering. My academic journey has been focused on solving complex problems using data-driven approaches and building intelligent systems.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                >
-                  During my time at Virginia Tech, I've developed a strong foundation in statistical analysis, predictive modeling, and software development. I've applied these skills through internships and research projects at my university.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.8, duration: 0.6 }}
-                >
-                  I have strong interests in sports/sports analytics, writing, fitness, traveling (studying abroad in Scotland during the Fall 2025 semester), and art (love the MOMA in New York, as well as the art museums in Atlanta, DC, etc). I've lost over 70 lbs in one year and I try to maintain a balanced lifestyle.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 1.0, duration: 0.6 }}
-                >
-                  When I'm not coding or sitting at a desk, you can find me at the Pickleball court, Basketball court, the gym, or on the couch...watching Netflix.
-                </motion.p>
-              </div>
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 1.2, duration: 0.6 }}
-              >
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
-                  <GraduationCap className="text-coffee-600 mr-3" />
-                  <div>
-                    <span className="text-sm text-mocha-500">Education</span>
-                    <p className="text-mocha-700 font-medium">B.S. Computational Modeling and Data Analytics</p>
-                  </div>
-                </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
-                  <GraduationCap className="text-coffee-600 mr-3" />
-                  <div>
-                    <span className="text-sm text-mocha-500">University</span>
-                    <p className="text-mocha-700 font-medium">Virginia Tech</p>
-                  </div>
-                </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
-                  <LocationOn className="text-coffee-600 mr-3" />
-                  <div>
-                    <span className="text-sm text-mocha-500">Location</span>
-                    <p className="text-mocha-700 font-medium">Atlanta, GA</p>
-                  </div>
-                </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
-                  <Languages className="text-coffee-600 mr-3" />
-                  <div>
-                    <span className="text-sm text-mocha-500">Languages</span>
-                    <p className="text-mocha-700 font-medium">English, Tamil</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2
-            className="text-4xl font-bold mb-16 text-cream-50"
-            initial={{ opacity: 0, y: 30 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            Get In Touch
-          </motion.h2>
-          <div className="md:flex md:space-x-12 md:text-left">
-            <motion.div
-              className="md:w-1/2 mb-8 md:mb-0"
-              initial={{ opacity: 0, x: -50 }}
-              animate={contactInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="text-2xl font-semibold mb-8 text-cream-100">Contact Information</h3>
-              <div className="space-y-6">
-                {[
-                  { icon: <Mail />, text: "My Email", href: "mailto:bhargav.ashok2023@gmail.com" },
-                  { icon: <MapPin />, text: "United States" },
-                  { icon: <ExternalLink />, text: "LinkedIn", href: "https://www.linkedin.com/in/bhargav-ashok2005/" },
-                  { icon: <Github />, text: "GitHub (More of my Projects are found here!)", href: "https://github.com/BAsh2365" }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center text-cream-100"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={contactInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
-                    whileHover={{ x: 5 }}
-                  >
-                    <span className="mr-4">{item.icon}</span>
-                    {item.href ? (
-                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-coffee-200 transition-colors">
-                        {item.text}
-                      </a>
-                    ) : (
-                      <span>{item.text}</span>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="md:w-1/2"
-              initial={{ opacity: 0, x: 50 }}
-              animate={contactInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <form
-                className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/20"
-                action="https://formspree.io/f/meoaqlak"
-                method="POST"
-              >
-                <div className="space-y-6">
-                  {[
-                    { label: "Name", name: "name", type: "text", placeholder: "Your Name" },
-                    { label: "Email", name: "email", type: "email", placeholder: "Your Email" },
-                    { label: "Subject", name: "subject", type: "text", placeholder: "Subject" }
-                  ].map((field, index) => (
-                    <motion.div
-                      key={field.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={contactInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                    >
-                      <label htmlFor={field.name} className="block text-cream-100 font-medium mb-2">
-                        {field.label}
-                      </label>
-                      <input
-                        type={field.type}
-                        id={field.name}
-                        name={field.name}
-                        className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-300 text-cream-50 placeholder-cream-300"
-                        placeholder={field.placeholder}
-                      />
-                    </motion.div>
-                  ))}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={contactInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.7, duration: 0.6 }}
-                  >
-                    <label htmlFor="message" className="block text-cream-100 font-medium mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-300 text-cream-50 placeholder-cream-300"
-                      placeholder="Your Message"
-                    />
-                  </motion.div>
-                  <motion.button
-                    type="submit"
-                    className="w-full bg-coffee-500 text-cream-50 py-3 px-6 rounded-lg font-medium hover:bg-coffee-600 transition-colors flex items-center justify-center"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={contactInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                  >
-                    Send Message <Send className="ml-2" />
-                  </motion.button>
-                </div>
-              </form>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 bg-mocha-900 text-cream-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            className="md:flex md:justify-between md:items-center text-center md:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-6 md:mb-0">
-              <div className="flex items-center justify-center md:justify-start mb-2">
-                <span className="font-bold text-xl">Bhargav Ashok</span>
-              </div>
-              <p className="text-cream-300">Student at Virginia Tech</p>
-            </div>
-            <div className="flex flex-wrap gap-6 justify-center">
-              {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-cream-300 hover:text-cream-50 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            className="mt-8 pt-8 border-t border-cream-800 text-center text-cream-400"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <p>&copy; 2025 Bhargav Ashok. All rights reserved.</p>
-          </motion.div>
-        </div>
-      </footer>
-
-      <style>
-        {`
-          @keyframes typing {
-            from { width: 0 }
-            to   { width: 100% }
-          }
-          @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50%      { border-color: #CC5500; }
-          }
-          @keyframes scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-scroll {
-            display: flex;
-            animation: scroll 45s linear infinite;
-          }
-          @media (max-width: 640px) {
-            .typing-disabled {
-              border-right: none !important;
-              animation: none !important;
-              white-space: normal !important;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };
