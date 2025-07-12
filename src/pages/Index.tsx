@@ -1,3 +1,4 @@
+
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Send } from 'lucide-react';
@@ -6,10 +7,12 @@ const Index = () => {
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
+  const contactRef = useRef(null);
   
   const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
   const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
   const skillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
+  const contactInView = useInView(contactRef, { once: true, margin: "-100px" });
 
   const projects = [
     {
@@ -99,49 +102,27 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-cream-100">
-      {/* Modern Navigation */}
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-md shadow-lg z-50 rounded-full px-8 py-4"
-      >
-        <div className="flex items-center space-x-8">
-          <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center text-mocha-800"
-          >
-            <Star className="mr-2 h-5 w-5" />
-            <span className="font-bold text-lg">Bhargav Ashok</span>
-          </motion.div>
-          <div className="hidden md:flex space-x-6">
-            {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                whileHover={{ scale: 1.05 }}
-                className="text-mocha-700 hover:text-coffee-600 transition-colors font-medium"
-              >
-                {item}
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </motion.nav>
-
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 bg-gradient-to-r from-mocha-800 to-coffee-700">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+      <section id="home" className="pt-20 pb-20 bg-gradient-to-r from-mocha-800 to-coffee-700">
+        <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-left mb-12"
           >
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6 text-cream-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 1 }}
+              style={{
+                overflow: 'hidden',
+                borderRight: '.15em solid #CC5500',
+                whiteSpace: 'nowrap',
+                margin: '0',
+                animation: 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
+              }}
             >
               Hey, This is Bhargav Ashok
             </motion.h1>
@@ -149,15 +130,22 @@ const Index = () => {
               className="text-xl md:text-2xl mb-8 text-cream-100"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 1 }}
+              transition={{ delay: 4.0, duration: 1 }}
+              style={{
+                overflow: 'hidden',
+                borderRight: '.15em solid #CC5500',
+                whiteSpace: 'nowrap',
+                margin: '1rem 0',
+                animation: 'typing 3.5s steps(40, end) 4s, blink-caret .75s step-end infinite'
+              }}
             >
               Aspiring: Data Scientist/Engineer/Analyst | Product Manager | Software Engineer
             </motion.h2>
             <motion.p 
-              className="text-lg mb-12 text-cream-200 max-w-3xl mx-auto"
+              className="text-lg mb-12 text-cream-200 max-w-3xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 1 }}
+              transition={{ delay: 8.0, duration: 1 }}
             >
               Taking it one step at a time to implement software solutions that provide assistance, quantifiable metrics, and real time data insights.
             </motion.p>
@@ -167,7 +155,7 @@ const Index = () => {
               className="overflow-hidden mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
+              transition={{ delay: 9.0, duration: 1 }}
             >
               <div className="flex animate-scroll space-x-8">
                 {[...Array(3)].map((_, setIndex) => (
@@ -175,7 +163,9 @@ const Index = () => {
                     {[
                       "https://d3k2f0s3vqqs9o.cloudfront.net/media/2BF7D1AD-4DB7-43DF-A1F1EE0C57549FC3/2DC7E8CE-9361-44E8-8124C2A98686CA14/webimage-B44D00B5-F762-4041-AAFA1D482BA4D7D3.png",
                       "https://swimburger.net/media/ppnn3pcl/azure.png",
-                      "https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png",
+                      "/lovable-uploads/1b43edff-6cd6-48a9-a6be-2ba6b86e61da.png",
+                      "/lovable-uploads/4cb6f052-34f4-4160-9663-21d2fd618799.png",
+                      "/lovable-uploads/5380ca9a-2253-42fe-a05b-9a11bb5c20e2.png",
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/2560px-R_logo.svg.png",
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/701px-Python-logo-notext.svg.png",
                       "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
@@ -195,10 +185,10 @@ const Index = () => {
             </motion.div>
 
             <motion.div 
-              className="flex justify-center space-x-6"
+              className="flex justify-start space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
+              transition={{ delay: 10.0, duration: 0.8 }}
             >
               <motion.a
                 href="#contact"
@@ -342,32 +332,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section with Fixed Circular Image */}
+      {/* About Section with Fixed Layout */}
       <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-br from-cream-100 to-mocha-100">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="md:flex md:items-center md:space-x-12">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-16 text-mocha-800"
+            initial={{ opacity: 0, y: 30 }}
+            animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            About Me
+          </motion.h2>
+          
+          <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-12 space-y-8 md:space-y-0">
             <motion.div
-              className="md:w-1/3 mb-8 md:mb-0"
-              initial={{ opacity: 0, x: -50 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : {}}
+              className="flex-shrink-0"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={aboutInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <motion.img
+              <img
                 src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
                 alt="Bhargav Ashok"
-                className="rounded-full shadow-lg w-64 h-64 object-cover mx-auto"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                className="rounded-full shadow-lg w-64 h-64 object-cover border-4 border-coffee-200"
               />
             </motion.div>
             
             <motion.div
-              className="md:w-2/3"
+              className="flex-1"
               initial={{ opacity: 0, x: 50 }}
               animate={aboutInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-4xl font-bold mb-6 text-mocha-800">About Me</h2>
               <div className="space-y-4 text-mocha-600 leading-relaxed">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -405,28 +401,28 @@ const Index = () => {
                 animate={aboutInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 1.2, duration: 0.6 }}
               >
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
                   <GraduationCap className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">Education</span>
                     <p className="text-mocha-700 font-medium">B.S. Computational Modeling and Data Analytics</p>
                   </div>
                 </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
                   <GraduationCap className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">University</span>
                     <p className="text-mocha-700 font-medium">Virginia Tech</p>
                   </div>
                 </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
                   <LocationOn className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">Location</span>
                     <p className="text-mocha-700 font-medium">Atlanta, GA</p>
                   </div>
                 </div>
-                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg">
+                <div className="flex items-center bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-coffee-200">
                   <Languages className="text-coffee-600 mr-3" />
                   <div>
                     <span className="text-sm text-mocha-500">Languages</span>
@@ -440,12 +436,12 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
+      <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2 
             className="text-4xl font-bold text-center mb-16 text-cream-50"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={contactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
             Get In Touch
@@ -455,7 +451,7 @@ const Index = () => {
             <motion.div
               className="md:w-1/2 mb-8 md:mb-0"
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={contactInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-semibold mb-8 text-cream-100">Contact Information</h3>
@@ -470,7 +466,7 @@ const Index = () => {
                     key={index}
                     className="flex items-center text-cream-100"
                     initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    animate={contactInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                     whileHover={{ x: 5 }}
                   >
@@ -490,10 +486,10 @@ const Index = () => {
             <motion.div
               className="md:w-1/2"
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={contactInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <form className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg" action="https://formspree.io/f/meoaqlak" method="POST">
+              <form className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/20" action="https://formspree.io/f/meoaqlak" method="POST">
                 <div className="space-y-6">
                   {[
                     { label: "Name", name: "name", type: "text", placeholder: "Your Name" },
@@ -503,7 +499,7 @@ const Index = () => {
                     <motion.div
                       key={field.name}
                       initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      animate={contactInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.4 + (index * 0.1), duration: 0.6 }}
                     >
                       <label htmlFor={field.name} className="block text-cream-100 font-medium mb-2">{field.label}</label>
@@ -519,7 +515,7 @@ const Index = () => {
                   
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={contactInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.7, duration: 0.6 }}
                   >
                     <label htmlFor="message" className="block text-cream-100 font-medium mb-2">Message</label>
@@ -538,7 +534,7 @@ const Index = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={contactInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.8, duration: 0.6 }}
                   >
                     Send Message <Send className="ml-2" />
@@ -553,38 +549,35 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 bg-mocha-900 text-cream-100">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="md:flex md:justify-between md:items-center">
-            <motion.div
-              className="mb-6 md:mb-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+          <motion.div
+            className="md:flex md:justify-between md:items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="mb-6 md:mb-0">
               <div className="flex items-center mb-2">
-                <Star className="mr-2" />
                 <span className="font-bold text-xl">Bhargav Ashok</span>
               </div>
               <p className="text-cream-300">Student at Virginia Tech</p>
-            </motion.div>
+            </div>
             
-            <motion.div
-              className="flex flex-wrap gap-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
+            <div className="flex flex-wrap gap-6">
               {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="text-cream-300 hover:text-cream-50 transition-colors"
                   whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
                 >
                   {item}
                 </motion.a>
               ))}
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
           
           <motion.div
             className="mt-8 pt-8 border-t border-cream-800 text-center text-cream-400"
@@ -596,6 +589,32 @@ const Index = () => {
           </motion.div>
         </div>
       </footer>
+
+      <style jsx>{`
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: #CC5500; }
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          display: flex;
+          animation: scroll 45s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
