@@ -1,55 +1,88 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Send } from 'lucide-react';
+import {
+  Star,
+  Mail,
+  MapPin,
+  ExternalLink,
+  Github,
+  Settings,
+  Home,
+  Zap,
+  DollarSign,
+  Tv,
+  Database,
+  BarChart3,
+  Brain,
+  Code2,
+  CheckCircle,
+  Ship,
+  Infinity,
+  TrendingUp,
+  GitBranch,
+  ScatterChart,
+  HardDrive,
+  PieChart,
+  Cloud,
+  GraduationCap,
+  MapPin as LocationOn,
+  Languages,
+  Send
+} from 'lucide-react';
 
 const Index = () => {
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
-  
   const [isScrollPaused, setIsScrollPaused] = useState(false);
-  
+
   const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
-  const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
-  const skillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
+  const aboutInView   = useInView(aboutRef,   { once: true, margin: "-100px" });
+  const skillsInView  = useInView(skillsRef,  { once: true, margin: "-100px" });
   const contactInView = useInView(contactRef, { once: true, margin: "-100px" });
 
   const projects = [
     {
       title: "Systems-Engineering AI chatbot",
-      description: "Leveraged AI systems, API keys, software engineering principles, and systems engineering concepts to make an end-to-end MBSE chatbot application based on Systems Engineering Research, through the Virginia Tech Hume Center, and development goals.",
+      description:
+        "Leveraged AI systems, API keys, software engineering principles, and systems engineering concepts to make an end-to-end MBSE chatbot application based on Systems Engineering Research, through the Virginia Tech Hume Center, and development goals.",
       icon: <Settings className="text-coffee-600" />,
       tags: ["Python", "Relational Databases", "Graph Databases", "Docker", "Azure", "Software diagramming", "AI"]
     },
     {
-      title: "Real Estate Data Program", 
-      description: "Developed a Python script in Jupyter Notebook that leveraged Python Pandas, asyncio, Playwright, and Excel Output for webscrapping in order to catagorize and analyze Real Estate Housing Data in the Atlanta Area.",
+      title: "Real Estate Data Program",
+      description:
+        "Developed a Python script in Jupyter Notebook that leveraged Python Pandas, asyncio, Playwright, and Excel Output for webscrapping in order to catagorize and analyze Real Estate Housing Data in the Atlanta Area.",
       icon: <Home className="text-coffee-600" />,
       tags: ["Pandas Dataframes", "Web Scrapping", "Excel", "Data Analysis"]
     },
     {
       title: "NBA Case Study: Data Prediction and Analysis",
-      description: "Built a simple linear regression model with 7-8 features (NBA stats and Advanced stat metrics) based on Webscrapped data from Basketball Reference on game splits for the 2025 season. Gathered Metrics of predicted data, outputted to a CSV, and built a dashboard in Tableau showing different statistical comparisons.",
+      description:
+        "Built a simple linear regression model with 7-8 features (NBA stats and Advanced stat metrics) based on Webscrapped data from Basketball Reference on game splits for the 2025 season. Gathered Metrics of predicted data, outputted to a CSV, and built a dashboard in Tableau showing different statistical comparisons.",
       icon: <Zap className="text-coffee-600" />,
       tags: ["Sci-Kit-Learn", "Python", "Linear-Regression", "Data Visualization in Tableau", "Webscrapping", "Data Storytelling"]
     },
     {
       title: "Financial Analysis: Sony Corporation",
-      description: "Looked at financial data (Revenue, Profits, and Earnings Per share) for the Sony Corporation (SONY) from 2020-2024 and analyzing the company's finances while making suggestions for potential improvement and future company projections.",
+      description:
+        "Looked at financial data (Revenue, Profits, and Earnings Per share) for the Sony Corporation (SONY) from 2020-2024 and analyzing the company's finances while making suggestions for potential improvement and future company projections.",
       icon: <DollarSign className="text-coffee-600" />,
       tags: ["Python", "APIs", "Matplotlib", "Fundamental understanding of lists and list comprehensions"]
     },
     {
       title: "Condensed Media: Online Branding and Social Media Page",
-      description: "Started a Website in 2021 titled condensed sports, eventually making it a multi-disciplinary personal brand for sports and pop culture. Features a podcast, Instagram page, and website discussing all things sports/pop culture.",
+      description:
+        "Started a Website in 2021 titled condensed sports, eventually making it a multi-disciplinary personal brand for sports and pop culture. Features a podcast, Instagram page, and website discussing all things sports/pop culture.",
       icon: <Tv className="text-coffee-600" />,
       tags: ["Social Media Marketing", "Website optimization", "Podcasting", "Sports Analytics and Research"]
     },
     {
       title: "Multiple Linear Regression in R",
-      description: "MLR in R using cross-validation, ridge regression, etc. Shows how the number of touchdowns for an Atlanta Falcons player is affected by multiple factors.",
+      description:
+        "MLR in R using cross-validation, ridge regression, etc. Shows how the number of touchdowns for an Atlanta Falcons player is affected by multiple factors.",
       icon: <Database className="text-coffee-600" />,
       tags: ["R", "Regression (Ridge, Lasso, MLR, etc)", "Data Analysis"]
     }
@@ -72,7 +105,7 @@ const Index = () => {
       icon: <Brain className="text-coffee-600 text-2xl" />,
       items: [
         "Supervised Learning",
-        "Unsupervised Learning", 
+        "Unsupervised Learning",
         "Regression Testing",
         "Natural Language Processing",
         "Data Retrieval & Fine-Tuning"
@@ -106,15 +139,15 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-cream-100">
       {/* Hero Section */}
       <section id="home" className="pt-20 pb-20 bg-gradient-to-r from-mocha-800 to-coffee-700">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 text-cream-50"
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-cream-50 max-w-full typing-disabled"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 1 }}
@@ -122,14 +155,13 @@ const Index = () => {
                 overflow: 'hidden',
                 borderRight: '.15em solid #CC5500',
                 whiteSpace: 'nowrap',
-                margin: '0 auto',
                 animation: 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
               }}
             >
               Hey, This is Bhargav Ashok
             </motion.h1>
-            <motion.h2 
-              className="text-xl md:text-2xl mb-8 text-cream-100"
+            <motion.h2
+              className="text-base sm:text-lg md:text-2xl mb-8 text-cream-100 max-w-full typing-disabled"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 4.0, duration: 1 }}
@@ -143,7 +175,7 @@ const Index = () => {
             >
               Aspiring: Data Scientist/Engineer/Analyst | Product Manager | Software Engineer
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg mb-12 text-cream-200 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -153,7 +185,7 @@ const Index = () => {
             </motion.p>
 
             {/* Interactive Tech Stack Scrolling Animation */}
-            <motion.div 
+            <motion.div
               className="overflow-hidden mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -188,7 +220,7 @@ const Index = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="flex justify-center space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -215,10 +247,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section with Animation */}
+      {/* Projects Section */}
       <section id="projects" ref={projectsRef} className="py-20 bg-gradient-to-br from-cream-100 to-cream-200">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-16 text-mocha-800"
             initial={{ opacity: 0, y: 30 }}
             animate={projectsInView ? { opacity: 1, y: 0 } : {}}
@@ -226,7 +258,6 @@ const Index = () => {
           >
             Featured Projects
           </motion.h2>
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
@@ -238,10 +269,7 @@ const Index = () => {
                 className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
                 <div className="p-8 text-center">
-                  <motion.div 
-                    className="flex items-center justify-center mb-4"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <motion.div className="flex items-center justify-center mb-4" whileHover={{ scale: 1.05 }}>
                     {project.icon}
                     <h3 className="text-xl font-semibold text-mocha-800 ml-3">{project.title}</h3>
                   </motion.div>
@@ -252,7 +280,7 @@ const Index = () => {
                         key={tagIndex}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={projectsInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ delay: (index * 0.15) + (tagIndex * 0.05), duration: 0.3 }}
+                        transition={{ delay: index * 0.15 + tagIndex * 0.05, duration: 0.3 }}
                         whileHover={{ scale: 1.05 }}
                         className="bg-coffee-100 text-coffee-700 text-xs px-3 py-1 rounded-full border border-coffee-200"
                       >
@@ -270,7 +298,7 @@ const Index = () => {
       {/* Skills Section */}
       <section id="skills" ref={skillsRef} className="py-20 bg-gradient-to-br from-mocha-50 to-coffee-50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-16 text-mocha-800"
             initial={{ opacity: 0, y: 30 }}
             animate={skillsInView ? { opacity: 1, y: 0 } : {}}
@@ -278,7 +306,6 @@ const Index = () => {
           >
             Technical Skills
           </motion.h2>
-
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {skills.map((skill, index) => (
               <motion.div
@@ -298,7 +325,7 @@ const Index = () => {
                       key={itemIndex}
                       initial={{ opacity: 0, x: -20 }}
                       animate={skillsInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: (index * 0.2) + (itemIndex * 0.1), duration: 0.4 }}
+                      transition={{ delay: index * 0.2 + itemIndex * 0.1, duration: 0.4 }}
                       className="flex items-start text-mocha-600 justify-center"
                     >
                       <CheckCircle className="text-coffee-500 mr-3 mt-0.5 text-sm flex-shrink-0" />
@@ -309,8 +336,6 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Tools Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={skillsInView ? { opacity: 1, y: 0 } : {}}
@@ -323,7 +348,7 @@ const Index = () => {
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={skillsInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.8 + (index * 0.05), duration: 0.4 }}
+                  transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   className="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-md flex items-center hover:shadow-lg transition-all duration-300"
                 >
@@ -336,10 +361,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section with Fixed Layout */}
+      {/* About Section */}
       <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-br from-cream-100 to-mocha-100">
         <div className="max-w-6xl mx-auto px-4">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold text-center mb-16 text-mocha-800"
             initial={{ opacity: 0, y: 30 }}
             animate={aboutInView ? { opacity: 1, y: 0 } : {}}
@@ -347,7 +372,6 @@ const Index = () => {
           >
             About Me
           </motion.h2>
-          
           <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-12 space-y-8 md:space-y-0">
             <motion.div
               className="flex-shrink-0"
@@ -363,7 +387,6 @@ const Index = () => {
                 />
               </div>
             </motion.div>
-            
             <motion.div
               className="flex-1"
               initial={{ opacity: 0, x: 50 }}
@@ -400,7 +423,6 @@ const Index = () => {
                   When I'm not coding or sitting at a desk, you can find me at the Pickleball court, Basketball court, the gym, or on the couch...watching Netflix.
                 </motion.p>
               </div>
-
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -444,7 +466,7 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-16 text-cream-50"
             initial={{ opacity: 0, y: 30 }}
             animate={contactInView ? { opacity: 1, y: 0 } : {}}
@@ -452,7 +474,6 @@ const Index = () => {
           >
             Get In Touch
           </motion.h2>
-          
           <div className="md:flex md:space-x-12 md:text-left">
             <motion.div
               className="md:w-1/2 mb-8 md:mb-0"
@@ -495,7 +516,11 @@ const Index = () => {
               animate={contactInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <form className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/20" action="https://formspree.io/f/meoaqlak" method="POST">
+              <form
+                className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-white/20"
+                action="https://formspree.io/f/meoaqlak"
+                method="POST"
+              >
                 <div className="space-y-6">
                   {[
                     { label: "Name", name: "name", type: "text", placeholder: "Your Name" },
@@ -506,9 +531,11 @@ const Index = () => {
                       key={field.name}
                       initial={{ opacity: 0, y: 20 }}
                       animate={contactInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.4 + (index * 0.1), duration: 0.6 }}
+                      transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
                     >
-                      <label htmlFor={field.name} className="block text-cream-100 font-medium mb-2">{field.label}</label>
+                      <label htmlFor={field.name} className="block text-cream-100 font-medium mb-2">
+                        {field.label}
+                      </label>
                       <input
                         type={field.type}
                         id={field.name}
@@ -518,13 +545,14 @@ const Index = () => {
                       />
                     </motion.div>
                   ))}
-                  
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={contactInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.7, duration: 0.6 }}
                   >
-                    <label htmlFor="message" className="block text-cream-100 font-medium mb-2">Message</label>
+                    <label htmlFor="message" className="block text-cream-100 font-medium mb-2">
+                      Message
+                    </label>
                     <textarea
                       id="message"
                       name="message"
@@ -533,7 +561,6 @@ const Index = () => {
                       placeholder="Your Message"
                     />
                   </motion.div>
-                  
                   <motion.button
                     type="submit"
                     className="w-full bg-coffee-500 text-cream-50 py-3 px-6 rounded-lg font-medium hover:bg-coffee-600 transition-colors flex items-center justify-center"
@@ -567,7 +594,6 @@ const Index = () => {
               </div>
               <p className="text-cream-300">Student at Virginia Tech</p>
             </div>
-            
             <div className="flex flex-wrap gap-6 justify-center">
               {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
                 <motion.a
@@ -584,7 +610,6 @@ const Index = () => {
               ))}
             </div>
           </motion.div>
-          
           <motion.div
             className="mt-8 pt-8 border-t border-cream-800 text-center text-cream-400"
             initial={{ opacity: 0 }}
@@ -600,26 +625,26 @@ const Index = () => {
         {`
           @keyframes typing {
             from { width: 0 }
-            to { width: 100% }
+            to   { width: 100% }
           }
-
           @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #CC5500; }
+            50%      { border-color: #CC5500; }
           }
-
           @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
           }
-
           .animate-scroll {
             display: flex;
             animation: scroll 45s linear infinite;
+          }
+          @media (max-width: 640px) {
+            .typing-disabled {
+              border-right: none !important;
+              animation: none !important;
+              white-space: normal !important;
+            }
           }
         `}
       </style>
