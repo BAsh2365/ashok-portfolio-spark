@@ -176,7 +176,7 @@ export default {
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'scroll': 'scroll 30s linear infinite'
+				'scroll': 'scroll 15s linear infinite'
 			}
 		}
 	},
