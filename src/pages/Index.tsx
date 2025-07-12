@@ -150,7 +150,7 @@ const Index = () => {
       highlights: [
         "Crafted an ETL pipeline in Node.js to migrate and transform PostgreSQL data into Neo4j",
         "Improved Neo4j query times by 53% on average using optimization techniques",
-        "Conducted end-to-end tests for larger instances (14 second improved query for 1000-part BOM)"
+        "Conducted end-to-end tests for larger instances (14 second improved query for a 1000-part Bill of Materials Tree in Neo4j)"
       ]
     },
     {
@@ -160,8 +160,8 @@ const Index = () => {
       location: "Blacksburg, VA",
       highlights: [
         "Developed Model-Based Systems Engineering AI tool, boosting project efficiency by 25%",
-        "Leveraged RAG, Python, AI APIs, MS SQL, Flask, and HTML UI components",
-        "Implemented cloud-based, containerized solutions using Microsoft Azure and Docker"
+        "Leveraged RAG, Python, LLM/AI APIs, MS SQL, Flask, and HTML UI components",
+        "Implemented cloud-based, containerized solutions using Microsoft Azure and Docker, deployed production app on Railway"
       ]
     },
     {
