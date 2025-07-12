@@ -113,6 +113,7 @@ const Index = () => {
         "Supervised Learning",
         "Unsupervised Learning",
         "Contrastive Learning",
+        "Natural Language Processing",
         "Data Retrieval & Fine-Tuning"
       ]
     },
@@ -149,7 +150,7 @@ const Index = () => {
       highlights: [
         "Crafted an ETL pipeline in Node.js to migrate and transform PostgreSQL data into Neo4j",
         "Improved Neo4j query times by 53% on average using optimization techniques",
-        "Conducted end-to-end tests for larger instances (14-second improved query for 1000-part BOM)"
+        "Conducted end-to-end tests for larger instances (14 second improved query for 1000-part BOM)"
       ]
     },
     {
@@ -228,36 +229,39 @@ const Index = () => {
 
             {/* Interactive Tech Stack Scrolling Animation */}
             <motion.div
-              className="overflow-hidden mb-12"
+              className="overflow-x-hidden mb-12 w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.6, duration: 1 }}
               onMouseEnter={() => setIsScrollPaused(true)}
               onMouseLeave={() => setIsScrollPaused(false)}
             >
-              <div className={`flex space-x-8 ${isScrollPaused ? '' : 'animate-scroll'}`}>
-                {[...Array(3)].map((_, setIndex) => (
-                  <div key={setIndex} className="flex space-x-8 flex-shrink-0">
-                    {[
-                      "https://d3k2f0s3vqqs9o.cloudfront.net/media/2BF7D1AD-4DB7-43DF-A1F1EE0C57549FC3/2DC7E8CE-9361-44E8-8124C2A98686CA14/webimage-B44D00B5-F762-4041-AAFA1D482BA4D7D3.png",
-                      "https://swimburger.net/media/ppnn3pcl/azure.png",
-                      "/lovable-uploads/1b43edff-6cd6-48a9-a6be-2ba6b86e61da.png",
-                      "/lovable-uploads/4cb6f052-34f4-4160-9663-21d2fd618799.png",
-                      "/lovable-uploads/5380ca9a-2253-42fe-a05b-9a11bb5c20e2.png",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/2560px-R_logo.svg.png",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/701px-Python-logo-notext.svg.png",
-                      "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-                      "https://1000logos.net/wp-content/uploads/2022/03/Tableau-Logo.png"
-                    ].map((src, index) => (
-                      <motion.img
-                        key={`${setIndex}-${index}`}
-                        src={src}
-                        alt="Tech logo"
-                        className="h-16 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0"
-                        whileHover={{ scale: 1.1 }}
-                      />
-                    ))}
-                  </div>
+              <div
+                className={`flex space-x-8 ${isScrollPaused ? '' : 'animate-scroll'} w-full`}
+                style={{
+                  minWidth: '100%',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                }}
+              >
+                {Array(5).fill([
+                  "https://d3k2f0s3vqqs9o.cloudfront.net/media/2BF7D1AD-4DB7-43DF-A1F1EE0C57549FC3/2DC7E8CE-9361-44E8-8124C2A98686CA14/webimage-B44D00B5-F762-4041-AAFA1D482BA4D7D3.png",
+                  "https://swimburger.net/media/ppnn3pcl/azure.png",
+                  "/lovable-uploads/1b43edff-6cd6-48a9-a6be-2ba6b86e61da.png",
+                  "/lovable-uploads/4cb6f052-34f4-4160-9663-21d2fd618799.png",
+                  "/lovable-uploads/5380ca9a-2253-42fe-a05b-9a11bb5c20e2.png",
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/2560px-R_logo.svg.png",
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/701px-Python-logo-notext.svg.png",
+                  "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+                  "https://1000logos.net/wp-content/uploads/2022/03/Tableau-Logo.png"
+                ]).flat().map((src, index) => (
+                  <motion.img
+                    key={index}
+                    src={src}
+                    alt="Tech logo"
+                    className="h-16 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  />
                 ))}
               </div>
             </motion.div>
