@@ -50,7 +50,6 @@ const Index = () => {
   const resumeInView = useInView(resumeRef, { once: true, margin: "-100px" });
 
   const projects = [
-    // ... (same as before)
     {
       title: "Systems-Engineering AI chatbot",
       description:
@@ -450,21 +449,6 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={resumeInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-12 text-center"
-          >
-            <a
-              href="/Bhargav_Ashok_Resume.pdf"
-              download
-              className="inline-block bg-coffee-600 text-cream-50 px-6 py-3 rounded-full font-medium hover:bg-coffee-700 transition-colors shadow-lg"
-            >
-              Download Resume
-            </a>
-          </motion.div>
         </div>
       </section>
 
@@ -581,6 +565,164 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-16 text-cream-50"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Get In Touch
+          </motion.h2>
+          
+          <div className="md:flex md:space-x-12">
+            <motion.div
+              className="md:w-1/2 mb-8 md:mb-0"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-cream-100">Contact Information</h3>
+              <div className="space-y-6">
+                {[
+                  { icon: <Mail />, text: "My Email", href: "mailto:bhargav.ashok2023@gmail.com" },
+                  { icon: <MapPin />, text: "United States" },
+                  { icon: <ExternalLink />, text: "LinkedIn", href: "https://www.linkedin.com/in/bhargav-ashok2005/" },
+                  { icon: <Github />, text: "GitHub (More of my Projects are found here!)", href: "https://github.com/BAsh2365" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center text-cream-100"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                    whileHover={{ x: 5 }}
+                  >
+                    <span className="mr-4">{item.icon}</span>
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-coffee-200 transition-colors">
+                        {item.text}
+                      </a>
+                    ) : (
+                      <span>{item.text}</span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="md:w-1/2"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <form className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg" action="https://formspree.io/f/meoaqlak" method="POST">
+                <div className="space-y-6">
+                  {[
+                    { label: "Name", name: "name", type: "text", placeholder: "Your Name" },
+                    { label: "Email", name: "email", type: "email", placeholder: "Your Email" },
+                    { label: "Subject", name: "subject", type: "text", placeholder: "Subject" }
+                  ].map((field, index) => (
+                    <motion.div
+                      key={field.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 + (index * 0.1), duration: 0.6 }}
+                    >
+                      <label htmlFor={field.name} className="block text-cream-100 font-medium mb-2">{field.label}</label>
+                      <input
+                        type={field.type}
+                        id={field.name}
+                        name={field.name}
+                        className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-300 text-cream-50 placeholder-cream-300"
+                        placeholder={field.placeholder}
+                      />
+                    </motion.div>
+                  ))}
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                  >
+                    <label htmlFor="message" className="block text-cream-100 font-medium mb-2">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-coffee-300 text-cream-50 placeholder-cream-300"
+                      placeholder="Your Message"
+                    />
+                  </motion.div>
+                  
+                  <motion.button
+                    type="submit"
+                    className="w-full bg-coffee-500 text-cream-50 py-3 px-6 rounded-lg font-medium hover:bg-coffee-600 transition-colors flex items-center justify-center"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                  >
+                    Send Message <Send className="ml-2" />
+                  </motion.button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 bg-mocha-900 text-cream-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="md:flex md:justify-between md:items-center">
+            <motion.div
+              className="mb-6 md:mb-0"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center mb-2">
+                <Star className="mr-2" />
+                <span className="font-bold text-xl">Bhargav Ashok</span>
+              </div>
+              <p className="text-cream-300">Student at Virginia Tech</p>
+            </motion.div>
+            
+            <motion.div
+              className="flex flex-wrap gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-cream-300 hover:text-cream-50 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {item}
+                </motion.a>
+              ))}
+            </motion.div>
+          </div>
+          
+          <motion.div
+            className="mt-8 pt-8 border-t border-cream-800 text-center text-cream-400"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <p>&copy; 2025 Bhargav Ashok. All rights reserved.</p>
+          </motion.div>
+        </div>
+      </footer>
     </div>
   );
 };
