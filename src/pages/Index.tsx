@@ -1,6 +1,6 @@
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Star, Mail, MapPin, ExternalLink, Github, Settings, Home, Zap, DollarSign, Tv, Database, BarChart3, Brain, Code2, CheckCircle, Ship, Infinity, TrendingUp, GitBranch, ScatterChart, HardDrive, PieChart, Cloud, GraduationCap, MapPin as LocationOn, Languages, Send } from 'lucide-react';
 
 const Index = () => {
@@ -8,6 +8,8 @@ const Index = () => {
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
+  
+  const [isScrollPaused, setIsScrollPaused] = useState(false);
   
   const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
   const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
@@ -104,12 +106,12 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-cream-100">
       {/* Hero Section */}
       <section id="home" className="pt-20 pb-20 bg-gradient-to-r from-mocha-800 to-coffee-700">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left mb-12"
+            className="mb-12"
           >
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6 text-cream-50"
@@ -120,7 +122,7 @@ const Index = () => {
                 overflow: 'hidden',
                 borderRight: '.15em solid #CC5500',
                 whiteSpace: 'nowrap',
-                margin: '0',
+                margin: '0 auto',
                 animation: 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
               }}
             >
@@ -135,14 +137,14 @@ const Index = () => {
                 overflow: 'hidden',
                 borderRight: '.15em solid #CC5500',
                 whiteSpace: 'nowrap',
-                margin: '1rem 0',
+                margin: '1rem auto',
                 animation: 'typing 3.5s steps(40, end) 4s, blink-caret .75s step-end infinite'
               }}
             >
               Aspiring: Data Scientist/Engineer/Analyst | Product Manager | Software Engineer
             </motion.h2>
             <motion.p 
-              className="text-lg mb-12 text-cream-200 max-w-3xl"
+              className="text-lg mb-12 text-cream-200 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 8.0, duration: 1 }}
@@ -150,14 +152,16 @@ const Index = () => {
               Taking it one step at a time to implement software solutions that provide assistance, quantifiable metrics, and real time data insights.
             </motion.p>
 
-            {/* Fixed Tech Stack Scrolling Animation */}
+            {/* Interactive Tech Stack Scrolling Animation */}
             <motion.div 
               className="overflow-hidden mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 9.0, duration: 1 }}
+              onMouseEnter={() => setIsScrollPaused(true)}
+              onMouseLeave={() => setIsScrollPaused(false)}
             >
-              <div className="flex animate-scroll space-x-8">
+              <div className={`flex space-x-8 ${isScrollPaused ? '' : 'animate-scroll'}`}>
                 {[...Array(3)].map((_, setIndex) => (
                   <div key={setIndex} className="flex space-x-8 flex-shrink-0">
                     {[
@@ -185,7 +189,7 @@ const Index = () => {
             </motion.div>
 
             <motion.div 
-              className="flex justify-start space-x-6"
+              className="flex justify-center space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 10.0, duration: 0.8 }}
@@ -213,9 +217,9 @@ const Index = () => {
 
       {/* Projects Section with Animation */}
       <section id="projects" ref={projectsRef} className="py-20 bg-gradient-to-br from-cream-100 to-cream-200">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-16 text-mocha-800"
+            className="text-4xl font-bold mb-16 text-mocha-800"
             initial={{ opacity: 0, y: 30 }}
             animate={projectsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -233,16 +237,16 @@ const Index = () => {
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
-                <div className="p-8">
+                <div className="p-8 text-center">
                   <motion.div 
-                    className="flex items-center mb-4"
+                    className="flex items-center justify-center mb-4"
                     whileHover={{ scale: 1.05 }}
                   >
                     {project.icon}
                     <h3 className="text-xl font-semibold text-mocha-800 ml-3">{project.title}</h3>
                   </motion.div>
                   <p className="text-mocha-600 mb-6 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {project.tags.map((tag, tagIndex) => (
                       <motion.span
                         key={tagIndex}
@@ -265,9 +269,9 @@ const Index = () => {
 
       {/* Skills Section */}
       <section id="skills" ref={skillsRef} className="py-20 bg-gradient-to-br from-mocha-50 to-coffee-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-16 text-mocha-800"
+            className="text-4xl font-bold mb-16 text-mocha-800"
             initial={{ opacity: 0, y: 30 }}
             animate={skillsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -279,12 +283,12 @@ const Index = () => {
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={skillsInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 50 }}
+                animate={skillsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
                 className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex items-center mb-6">
+                <div className="flex items-center justify-center mb-6">
                   {skill.icon}
                   <h3 className="text-xl font-semibold text-mocha-800 ml-3">{skill.title}</h3>
                 </div>
@@ -295,10 +299,10 @@ const Index = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={skillsInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: (index * 0.2) + (itemIndex * 0.1), duration: 0.4 }}
-                      className="flex items-start text-mocha-600"
+                      className="flex items-start text-mocha-600 justify-center"
                     >
-                      <CheckCircle className="text-coffee-500 mr-3 mt-0.5 text-sm" />
-                      <span className="text-sm">{item}</span>
+                      <CheckCircle className="text-coffee-500 mr-3 mt-0.5 text-sm flex-shrink-0" />
+                      <span className="text-sm text-center">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -312,7 +316,7 @@ const Index = () => {
             animate={skillsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <h3 className="text-2xl font-semibold text-center mb-8 text-mocha-800">Frequently Used Tools & Technologies</h3>
+            <h3 className="text-2xl font-semibold mb-8 text-mocha-800">Frequently Used Tools & Technologies</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {tools.map((tool, index) => (
                 <motion.div
@@ -351,11 +355,13 @@ const Index = () => {
               animate={aboutInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <img
-                src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
-                alt="Bhargav Ashok"
-                className="rounded-full shadow-lg w-64 h-64 object-cover border-4 border-coffee-200"
-              />
+              <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-coffee-200">
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D4E03AQFpl67bvKFKJQ/profile-displayphoto-scale_400_400/B4EZfOwjbRHgAo-/0/1751520524370?e=1757548800&v=beta&t=DY74ymbFKtk09ujkO3s5wp9kuSXdpT9lMSPHu8m5UPs"
+                  alt="Bhargav Ashok"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
             
             <motion.div
@@ -364,7 +370,7 @@ const Index = () => {
               animate={aboutInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="space-y-4 text-mocha-600 leading-relaxed">
+              <div className="space-y-4 text-mocha-600 leading-relaxed text-center md:text-left">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={aboutInView ? { opacity: 1, y: 0 } : {}}
@@ -437,9 +443,9 @@ const Index = () => {
 
       {/* Contact Section */}
       <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-r from-coffee-600 to-mocha-700">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-16 text-cream-50"
+            className="text-4xl font-bold mb-16 text-cream-50"
             initial={{ opacity: 0, y: 30 }}
             animate={contactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -447,7 +453,7 @@ const Index = () => {
             Get In Touch
           </motion.h2>
           
-          <div className="md:flex md:space-x-12">
+          <div className="md:flex md:space-x-12 md:text-left">
             <motion.div
               className="md:w-1/2 mb-8 md:mb-0"
               initial={{ opacity: 0, x: -50 }}
@@ -550,19 +556,19 @@ const Index = () => {
       <footer className="py-12 bg-mocha-900 text-cream-100">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
-            className="md:flex md:justify-between md:items-center"
+            className="md:flex md:justify-between md:items-center text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className="mb-6 md:mb-0">
-              <div className="flex items-center mb-2">
+              <div className="flex items-center justify-center md:justify-start mb-2">
                 <span className="font-bold text-xl">Bhargav Ashok</span>
               </div>
               <p className="text-cream-300">Student at Virginia Tech</p>
             </div>
             
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-6 justify-center">
               {['Home', 'Projects', 'Skills', 'About', 'Contact'].map((item, index) => (
                 <motion.a
                   key={item}
@@ -590,31 +596,33 @@ const Index = () => {
         </div>
       </footer>
 
-      <style jsx>{`
-        @keyframes typing {
-          from { width: 0 }
-          to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-          from, to { border-color: transparent }
-          50% { border-color: #CC5500; }
-        }
-
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
+      <style>
+        {`
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
           }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
 
-        .animate-scroll {
-          display: flex;
-          animation: scroll 45s linear infinite;
-        }
-      `}</style>
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #CC5500; }
+          }
+
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          .animate-scroll {
+            display: flex;
+            animation: scroll 45s linear infinite;
+          }
+        `}
+      </style>
     </div>
   );
 };
